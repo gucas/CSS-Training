@@ -1,3 +1,3 @@
 # CSS-Training
 
-Just a Git test
+Just A Git Test
