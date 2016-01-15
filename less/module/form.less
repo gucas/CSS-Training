@@ -1,0 +1,345 @@
+
+::-webkit-input-placeholder { color : #000; text-align : center; transition : color .5s linear 1s; }
+:-moz-placeholder           { color : #000; text-align : center; transition : color .5s linear 1s; }
+::-moz-placeholder          { color : #000; text-align : center; transition : color .5s linear 1s; }
+:-ms-input-placeholder      { color : #000; text-align : center; transition : color .5s linear 1s; }
+
+
+// ANIMATION FORM WITH ABSOLUTE POSITION
+.form {
+    position   : relative;
+    text-align : center;
+    display    : block;
+    width      : 20rem;
+    margin     : 7rem auto 0;
+
+    &:hover {
+        .label {
+            top   : -4rem;
+            color : @pink;
+        }
+
+        .input { border : .1rem solid @pink; }
+
+        ::-webkit-input-placeholder { color : #FFF; }
+        :-moz-placeholder           { color : #FFF; }
+        ::-moz-placeholder          { color : #FFF; }
+        :-ms-input-placeholder      { color : #FFF; }
+    }
+}
+
+
+.input {
+    border           : .1rem solid #FFF;
+    background-color : #000;
+    border-radius    : .3rem;
+    width            : 20rem;
+    height           : 4.2rem;
+    padding          : 1rem 3.7rem;
+    transition       : border .5s linear .4s;
+    color            : #FFF;
+    box-shadow       : none; // Remove red "border" from "requiered" attribute.
+
+    &:valid + .label,
+    &:active + .label,
+    &:focus + .label {
+        top     : -4rem;
+        color   : @pink;
+    }
+}
+
+.label {
+    position       : absolute;
+    top            : 0;
+    left           : 0;
+    margin         : 0;
+    text-align     : center;
+    width          : 20rem;
+    line-height    : 4.2rem;
+    transition     : top .4s ease-out;
+    text-transform : uppercase;
+    color          : #FFF;
+    overflow       : hidden;
+}
+
+
+
+
+
+// ANIMATION FORM WITH TRANSLATE TRANSFORM
+
+.form-transform {
+    text-align : center;
+    display    : inline-block;
+    margin     : 3rem auto 0;
+
+    &:hover {
+        .label-transform {
+            color     : @pink;
+            transform : scale(.7);
+        }
+
+        .input-transform { border : .1rem solid @pink; }
+
+        ::-webkit-input-placeholder { color : #FFF; }
+        :-moz-placeholder           { color : #FFF; }
+        ::-moz-placeholder          { color : #FFF; }
+        :-ms-input-placeholder      { color : #FFF; }
+    }
+}
+
+.label-transform {
+    display        : block;
+    width          : 100%;
+    transform      : translateY(-4.2rem);
+    text-align     : center;
+    line-height    : 4.2rem;
+    height         : 4.2rem;
+    transition     : all .3s linear;
+    text-transform : uppercase;
+    color          : #FFF;
+}
+
+
+.input-transform {
+    display          : inline-block;
+    border           : .1rem solid #FFF;
+    background-color : #000;
+    border-radius    : .3rem;
+    width            : 100%;
+    height           : 4.2rem;
+    padding          : 1rem 3.7rem;
+    transition       : border .5s linear .4s;
+    color            : #FFF;
+    box-shadow       : none; // Remove red "border" from "requiered" attribute.
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+// TOTO
+.head {
+    position         : relative;
+    margin-top       : 5rem;
+    width            : 9rem;
+    height           : 10rem;
+    border-radius    : 70% 70% 100% 100%;
+    display          : inline-block;
+    background-color : lightpink;
+
+    &:before {
+        position         : absolute;
+        content          : "";
+        width            : 10rem;
+        height           : 6rem;
+        background-color : brown;
+        border-radius    : 100% 100% 50% 50% ;
+        top              : -2rem;
+        left             : -.4rem;
+        z-index          : -1 !important;
+    }
+
+    &:after {
+        content     : "Ohh Flute !";
+        color       : #FFF;
+        font-weight : 700;
+        position    : absolute;
+        top         : 50%;
+        left        : 0;
+        transform   : scale(0);
+        visibility  : hidden;
+        opacity     : 0;
+        transition  : all .2s ease;
+        width       : 100%;
+    }
+
+    &:hover {
+        cursor : pointer;
+
+        &:after {
+            transform  : scale(1);
+            visibility : visible;
+            opacity    : 1;
+            top        : 60%;
+            left       : 60%;
+        }
+
+        .eye-left:before,
+        .eye-right:before { transform : rotate(0); border-radius : 50% 50% 0 0 ; }
+
+        .eye { border : .2rem solid #FFF; }
+
+        .mouth {
+            height        : 1em;
+            border-radius : 0 0 50% 50%;
+            border: .3rem solid brown;
+
+            &:before,
+            &:after {
+                height     : .5rem;
+            }
+        }
+
+        .nose { transform : rotate(10deg); }
+    }
+}
+
+.eyes {
+    display    : inline-block;
+    margin-top : 3rem;
+}
+
+.eye {
+    position         : relative;
+    float            : left;
+    width            : 2rem;
+    height           : 2rem;
+    border-radius    : 50%;
+    background-color : cornflowerblue;
+    border           : .5rem solid #FFF;
+
+    & + .eye { margin-left : 1rem; }
+}
+
+.eye-left:before,
+.eye-right:before {
+    content       : "";
+    position      : absolute;
+    width         : 1.5rem;
+    height        : .5rem;
+    background    : #000;
+    top           : -1.3rem;
+    border-radius : 0 0 50% 50%;
+}
+
+.eye-left:before {
+    left             : -.5rem;
+    transform        : rotate(15deg);
+    animation        : ahahEyeLeft 1s infinite;
+    transform-origin : top right;
+}
+
+// @keyframes ahahEyeLeft {
+//     0% { transform  : rotate(15deg);  }
+//     25% { transform  : rotate(30deg);  }
+//     50% { transform  : rotate(45deg);  }
+//     75% { transform  : rotate(30deg);  }
+//     100% { transform  : rotate(15deg);  }
+// }
+
+.eye-right:before {
+    right            : -.5rem;
+    transform        : rotate(-20deg);
+    animation        : ahahEyeRight 1s infinite;
+    transform-origin : top left;
+}
+//
+// @keyframes ahahEyeRight {
+//     0% { transform  : rotate(-20deg);  }
+//     25% { transform  : rotate(-30deg);  }
+//     50% { transform  : rotate(-45deg);  }
+//     75% { transform  : rotate(-30deg);  }
+//     100% { transform  : rotate(-20deg);  }
+// }
+
+.nose {
+    position         : absolute;
+    top              : 55%;
+    left             : 47%;
+    transform        : translate(-50%, -50%);
+    display          : block;
+    margin           : 0 auto;
+    width            : .5rem;
+    height           : .5rem;
+    border-radius    : 50%;
+    background-color : indianred;
+
+    &:after {
+        position         : absolute;
+        left             : .6rem;
+        content          : "";
+        width            : .5rem;
+        height           : .5rem;
+        border-radius    : 50%;
+        background-color : indianred;
+    }
+}
+
+.mouth {
+    position         : relative;
+    display          : block;
+    margin           : 1rem auto 0;
+    width            : 3rem;
+    height           : .3em;
+    border-radius    : 0 0 50% 50%;
+    background-color : deeppink;
+    border: .1rem solid brown;
+
+    &:before,
+    &:after {
+        position   : absolute;
+        content    : "";
+        width      : .4rem;
+        top        : 0;
+        height     : .2rem;
+        background : #FFF;
+    }
+
+    &:before { left : 35%; }
+    &:after { margin-left : .2rem; }
+}
+
+
+.barbe {
+    z-index: 1;
+    position         : absolute;
+    width            : 9rem;
+    height           : 10rem;
+    border-radius    : 70% 70% 100% 100%;
+    display          : inline-block;
+    background-color : transparent;
+    left             : 0;
+    top              : 0;
+}
+
+.poil {
+    position         : absolute;
+    display          : block;
+    width            : .2rem;
+    height           : .2rem;
+    background-color : #000;
+    border-radius    : 50%;
+
+    &:before,
+    &:after {
+        content          : "";
+        position         : absolute;
+        display          : block;
+        width            : .2rem;
+        height           : .2rem;
+        background-color : #000;
+        border-radius    : 50%;
+        margin-top       : .5rem;
+        margin-left      : .5rem;
+    }
+
+    &:after {
+        margin-top  : .7rem;
+        margin-left : 1rem;
+    }
+
+    &:nth-child(1) { bottom : 2rem;   left : 2rem; }
+    &:nth-child(2) { bottom : 1rem;   left : 3rem; }
+    &:nth-child(3) { bottom : 1.5rem; left : 4rem; }
+    &:nth-child(4) { bottom : 1.3rem; left : 5rem; }
+    &:nth-child(5) { bottom : 2rem;   left : 6rem; }
+}
