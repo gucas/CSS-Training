@@ -1,0 +1,85 @@
+
+@import url(https://fonts.googleapis.com/css?family=Dancing+Script);
+
+
+.title-box {
+    position       : fixed;
+    z-index        : 1;
+    display        : table;
+    top            : 50%;
+    left           : 50%;
+    transform      : translate(-50%, -50%);
+    text-align     : center;
+    background     : #fff;
+    color          : #000;
+    mix-blend-mode : lighten;
+    margin         : 0;
+
+    .title {
+        display        : table-cell;
+        vertical-align : middle;
+        padding        : 2rem 3rem;
+        font-family    : 'Dancing Script', cursive;
+    }
+}
+
+.section {
+    background-repeat : no-repeat;
+    background-size   : cover;
+    isolation         : isolate;
+    position          : relative;
+    height            : 100vh;
+    padding           : 1rem;
+}
+
+.wrapper {
+  clip     : rect(auto auto auto auto);
+  position : absolute;
+  top      : 0;
+  right    : 0;
+  bottom   : 0;
+  left     : 0;
+
+    &:before {
+        display        : block;
+        width          : 27rem;
+        height         : 13rem;
+        position       : fixed;
+        top            : 50%;
+        left           : 50%;
+        transform      : translate(-50%, -50%);
+        content        : " ";
+        mix-blend-mode : darken;
+    }
+}
+
+.one {
+  background-image : url(https://unsplash.it/1920/1080?image=983);
+
+    .wrapper:before { background : red; }
+}
+
+.two {
+  background-image : url(https://unsplash.it/1920/1080?image=812);
+
+    .wrapper:before {
+        background     : #faaa54;
+        mix-blend-mode : difference;
+    }
+}
+
+.three {
+  background-image : url(https://unsplash.it/1920/1080?image=964);
+
+    .wrapper:before {
+        background     : #6c320a;
+        mix-blend-mode : screen;
+    }
+}
+
+.four {
+  background-image : url(https://unsplash.it/1920/1080?image=961);
+
+    .wrapper:before { background : #e4135d; }
+}
+
